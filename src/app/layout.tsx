@@ -61,6 +61,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* METICULOUS SCRIPT - MUST BE FIRST! */}
+        {(process.env.NODE_ENV === "development" || process.env.VERCEL_ENV === "preview") && (
+          // eslint-disable-next-line @next/next/no-sync-scripts
+          <script
+            data-recording-token="x80td0YR4Y01gVfHzh2jVtiSLwUcfIv5x2Z80CtJ"
+            data-is-production-environment="false"
+            src="https://snippet.meticulous.ai/v1/meticulous.js"
+          />
+        )}
+        
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <script
           dangerouslySetInnerHTML={{
