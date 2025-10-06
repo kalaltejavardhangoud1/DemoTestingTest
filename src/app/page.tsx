@@ -116,9 +116,9 @@ export default function DemoPage() {
             </div>
             <button
               onClick={() => setCounter(counter + 1)}
-              className="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg font-semibold transition-colors"
+              className="bg-green hover:bg-green-700 px-6 py-3 rounded-lg font-semibold transition-colors"
             >
-              Increase (+)
+              
             </button>
             <button
               onClick={() => setCounter(0)}
