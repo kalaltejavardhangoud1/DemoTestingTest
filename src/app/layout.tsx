@@ -1,9 +1,8 @@
 // app/layout.tsx
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Script from 'next/script';
 import './globals.css';
-
+import MeticulousClient from './components/MeticulousClient';
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -30,11 +29,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Base64 Encoder/Decoder' }],
   creator: 'Base64 Encoder/Decoder',
   publisher: 'Base64 Encoder/Decoder',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     type: 'website',
     siteName: 'Base64 Encoder/Decoder',
@@ -43,33 +38,14 @@ export const metadata: Metadata = {
       'Free online Base64 encoder and decoder. Convert text to Base64 and decode Base64 to text instantly.',
     url: 'https://en-decode-x.vercel.app',
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  alternates: {
-    canonical: 'https://en-decode-x.vercel.app',
-  },
+  robots: { index: true, follow: true },
+  alternates: { canonical: 'https://en-decode-x.vercel.app' },
   manifest: '/manifest.json',
-  icons: {
-    icon: '/favicon.ico',
-    apple: [{ url: '/apple-icon.png', sizes: '180x180' }],
-  },
+  icons: { icon: '/favicon.ico', apple: [{ url: '/apple-icon.png', sizes: '180x180' }] },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  // These env vars must be set in Netlify (or your hosting provider)
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Environment variables for Meticulous
   const enableMeticulous = process.env.NEXT_PUBLIC_ENABLE_METICULOUS === 'true';
   const recordingToken = process.env.NEXT_PUBLIC_METICULOUS_RECORDING_TOKEN ?? '';
   const isProductionFlag = process.env.NEXT_PUBLIC_METICULOUS_IS_PRODUCTION ?? 'false';
@@ -77,19 +53,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* METICULOUS SCRIPT - loads before other scripts (critical for recording early events) */}
+        {/* METICULOUS SCRIPT - Client Component handles event */}
         {enableMeticulous && recordingToken && (
-          <Script
-            src="https://snippet.meticulous.ai/v1/meticulous.js"
-            strategy="beforeInteractive"
-            data-recording-token={recordingToken}
-            data-is-production-environment={isProductionFlag}
-            onError={(e) => {
-              // runtime debug - this will show in browser console if the script fails to load
-              // eslint-disable-next-line no-console
-              console.error('Meticulous script failed to load', e);
-            }}
-          />
+          <MeticulousClient recordingToken={recordingToken} isProduction={isProductionFlag} />
         )}
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -108,11 +74,7 @@ export default function RootLayout({
               applicationCategory: 'UtilityApplication',
               operatingSystem: 'Any',
               browserRequirements: 'Requires JavaScript',
-              offers: {
-                '@type': 'Offer',
-                price: '0',
-                priceCurrency: 'USD',
-              },
+              offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
               featureList: [
                 'Text to Base64 encoding',
                 'Base64 to text decoding',
