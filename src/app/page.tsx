@@ -107,9 +107,9 @@ export default function DemoPage() {
           <div className="flex items-center gap-4 flex-wrap">
             <button
               onClick={() => setCounter(counter - 1)}
-              className="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg font-semibold transition-colors"
+              className=""
             >
-              Decrease (-)
+              
             </button>
             <div className="text-4xl font-bold text-blue-400 min-w-[80px] text-center">
               {counter}
