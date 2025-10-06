@@ -62,7 +62,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* METICULOUS SCRIPT - MUST BE FIRST! */}
-        {(process.env.NODE_ENV === "development" || process.env.VERCEL_ENV === "preview") && (
+        {(process.env.NODE_ENV === "development" || process.env.VERCEL_ENV === "preview" || process.env.NETLIFY === "true") && (
           // eslint-disable-next-line @next/next/no-sync-scripts
           <script
             data-recording-token="x80td0YR4Y01gVfHzh2jVtiSLwUcfIv5x2Z80CtJ"
