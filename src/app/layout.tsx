@@ -61,29 +61,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* METICULOUS SCRIPT - MUST BE FIRST! */}
-        {(process.env.NODE_ENV === "development" || process.env.VERCEL_ENV === "preview" || process.env.NETLIFY === "true") && (
-          // eslint-disable-next-line @next/next/no-sync-scripts
-          <script
-            data-recording-token="x80td0YR4Y01gVfHzh2jVtiSLwUcfIv5x2Z80CtJ"
-            data-is-production-environment="false"
-            src="https://snippet.meticulous.ai/v1/meticulous.js"
-          />
-        )}
+        {/* METICULOUS SCRIPT - Load on all environments */}
+        <script
+          data-recording-token="x80td0YR4Y01gVfHzh2jVtiSLwUcfIv5x2Z80CtJ"
+          data-is-production-environment="false"
+          src="https://snippet.meticulous.ai/v1/meticulous.js"
+        />
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const theme = localStorage.getItem('theme') ?? 'dark';
-                document.documentElement.classList.toggle('dark', theme === 'dark');
-              } catch (e) {
-                document.documentElement.classList.add('dark');
-              }
-            `,
-          }}
-        />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -113,6 +99,19 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} antialiased`}>
+        {/* Theme script moved after body to prevent hydration issues */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const theme = localStorage.getItem('theme') ?? 'dark';
+                document.documentElement.classList.toggle('dark', theme === 'dark');
+              } catch (e) {
+                document.documentElement.classList.add('dark');
+              }
+            `,
+          }}
+        />
         {children}
       </body>
     </html>
