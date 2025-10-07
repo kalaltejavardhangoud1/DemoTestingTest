@@ -166,7 +166,7 @@ export default function EcommerceSite() {
                 ☰
               </button>
             )}
-            <h1 className="text-3xl font-bold text-gray-800">Test Metiuclous Teja</h1>
+            <h1 className="text-3xl font-bold text-gray-800">Test Metiuclous DEMo</h1>
           </div>
           {isLoggedIn && (
             <div className="flex items-center space-x-4">
