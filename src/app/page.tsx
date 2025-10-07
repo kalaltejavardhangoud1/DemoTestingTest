@@ -20,45 +20,45 @@ interface CartItem extends Product {
 const PRODUCTS: Product[] = [
   {
     id: 1,
-    name: 'Sauce Labs Backpack',
+    name: 'Premium Backpack',
     price: 29.99,
     image: '🎒',
-    description: 'carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.'
+    description: 'Carry all your essentials with this sleek, streamlined backpack that melds uncompromising style with unequaled laptop and tablet protection.'
   },
   {
     id: 2,
-    name: 'Sauce Labs Bike Light',
+    name: 'Safety Bike Light',
     price: 9.99,
     image: '🚴',
-    description: 'A red light isn\'t the desired state in testing but it sure helps when riding your bike at night.'
+    description: 'Stay safe while riding at night with this bright, reliable bike light that ensures you\'re always visible.'
   },
   {
     id: 3,
-    name: 'Sauce Labs Bolt T-Shirt',
+    name: 'Classic Bolt T-Shirt',
     price: 15.99,
     image: '👕',
-    description: 'Get your testing superhero on with the Sauce Labs bolt T-shirt.'
+    description: 'Get your superhero style on with this comfortable bolt design T-shirt.'
   },
   {
     id: 4,
-    name: 'Sauce Labs Fleece Jacket',
+    name: 'Fleece Jacket',
     price: 49.99,
     image: '🧥',
     description: 'It\'s not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything.'
   },
   {
     id: 5,
-    name: 'Sauce Labs Onesie',
+    name: 'Onesie',
     price: 7.99,
     image: '👶',
     description: 'Rib snap infant onesie for the junior automation engineer in development.'
   },
   {
     id: 6,
-    name: 'Test.allTheThings() T-Shirt (Red)',
+    name: 'Classic Red T-Shirt',
     price: 15.99,
     image: '👔',
-    description: 'This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests.'
+    description: 'This classic t-shirt is perfect to wear for any casual occasion or everyday comfort.'
   }
 ];
 
@@ -166,7 +166,7 @@ export default function EcommerceSite() {
                 ☰
               </button>
             )}
-            <h1 className="text-3xl font-bold text-gray-800">Test Metiuclous DEMo</h1>
+            <h1 className="text-3xl font-bold text-gray-800">E-Shop Testing Hub</h1>
           </div>
           {isLoggedIn && (
             <div className="flex items-center space-x-4">
@@ -215,7 +215,7 @@ export default function EcommerceSite() {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-                  placeholder="standard_user"
+                  placeholder="username"
                   required
                 />
               </div>
@@ -228,7 +228,7 @@ export default function EcommerceSite() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-                  placeholder="secret_sauce"
+                  placeholder="password"
                   required
                 />
               </div>
@@ -332,15 +332,22 @@ export default function EcommerceSite() {
                 <h1 className="text-3xl font-bold text-gray-800 mb-4">{selectedProduct.name}</h1>
                 <p className="text-gray-600 mb-6 leading-relaxed">{selectedProduct.description}</p>
                 <div className="text-4xl font-bold text-gray-800 mb-8">${selectedProduct.price.toFixed(2)}</div>
-                <button
-                  onClick={() => {
-                    addToCart(selectedProduct);
-                    setPage('products');
-                  }}
-                  className="w-full md:w-auto px-8 py-4 bg-blue-600 text-white text-lg rounded-lg hover:bg-blue-700 transition"
-                >
-                  Add to Cart
-                </button>
+                <div className="flex flex-col md:flex-row gap-4">
+                  <button
+                    onClick={() => {
+                      addToCart(selectedProduct);
+                    }}
+                    className="px-8 py-4 bg-blue-600 text-white text-lg rounded-lg hover:bg-blue-700 transition"
+                  >
+                    Add to Cart
+                  </button>
+                  <button
+                    onClick={() => setPage('cart')}
+                    className="px-8 py-4 bg-green-600 text-white text-lg rounded-lg hover:bg-green-700 transition"
+                  >
+                    Proceed to Checkout
+                  </button>
+                </div>
               </div>
             </div>
           </div>
