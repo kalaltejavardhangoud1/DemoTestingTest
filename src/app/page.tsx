@@ -166,7 +166,7 @@ export default function EcommerceSite() {
                 ☰
               </button>
             )}
-            <h1 className="text-3xl font-bold text-gray-800">Swag Labs</h1>
+            <h1 className="text-3xl font-bold text-gray-800">Test Metiuclous Teja</h1>
           </div>
           {isLoggedIn && (
             <div className="flex items-center space-x-4">
@@ -242,10 +242,10 @@ export default function EcommerceSite() {
             </div>
             <div className="mt-6 p-4 bg-blue-50 rounded-lg">
               <p className="text-sm text-gray-600 font-semibold mb-2">Accepted usernames:</p>
-              <p className="text-xs text-gray-600">standard_user</p>
-              <p className="text-xs text-gray-600">locked_out_user</p>
-              <p className="text-xs text-gray-600">problem_user</p>
-              <p className="text-xs text-gray-600 mt-2"><strong>Password:</strong> secret_sauce</p>
+              <p className="text-xs text-gray-600">Teja</p>
+              <p className="text-xs text-gray-600">Tester</p>
+              <p className="text-xs text-gray-600">TesterTesting</p>
+              <p className="text-xs text-gray-600 mt-2"><strong>Password:</strong>Teja@Test</p>
             </div>
           </div>
         </div>
