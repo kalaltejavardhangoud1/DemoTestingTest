@@ -274,7 +274,14 @@ export default function EcommerceSite() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {getSortedProducts().map((product) => (
-              <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+              <div 
+                key={product.id} 
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition cursor-pointer"
+                onClick={() => {
+                  setSelectedProduct(product);
+                  setPage('product-detail');
+                }}
+              >
                 <div className="p-6 text-center bg-gradient-to-br from-gray-50 to-gray-100">
                   <div className="text-8xl mb-4">{product.image}</div>
                 </div>
@@ -285,7 +292,10 @@ export default function EcommerceSite() {
                     <span className="text-2xl font-bold text-gray-800">${product.price.toFixed(2)}</span>
                     <div className="space-x-2">
                       <button
-                        onClick={() => addToCart(product)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          addToCart(product);
+                        }}
                         className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
                       >
                         Add to Cart
