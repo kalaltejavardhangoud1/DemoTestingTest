@@ -1,4 +1,3 @@
-// app/layout.tsx
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -12,27 +11,29 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://en-decode-x.vercel.app'),
   title: {
-    template: '%s | SwagLabs',
-    default: 'SwagLabs - Demo E-commerce Store',
+    template: '%s | Explore Testing',
+    default: 'Explore Testing - Demo E-commerce & QA Platform',
   },
   description:
-    'Demo e-commerce store for testing and automation. Browse products, add to cart, and complete checkout.',
+    'Explore Testing is a demo e-commerce platform built for automation and QA testing. Browse products, add to cart, and test the checkout flow effortlessly.',
   keywords: [
+    'explore testing',
     'demo store',
-    'e-commerce',
+    'e-commerce testing',
+    'automation demo',
+    'qa testing',
     'test site',
     'shopping',
-    'swag',
   ],
-  authors: [{ name: 'SwagLabs' }],
-  creator: 'SwagLabs',
-  publisher: 'SwagLabs',
+  authors: [{ name: 'Explore Testing' }],
+  creator: 'Explore Testing',
+  publisher: 'Explore Testing',
   formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     type: 'website',
-    siteName: 'SwagLabs',
-    title: 'SwagLabs - Demo E-commerce Store',
-    description: 'Demo e-commerce store for testing and automation.',
+    siteName: 'Explore Testing',
+    title: 'Explore Testing - Demo E-commerce & QA Platform',
+    description: 'Demo e-commerce store for QA and automation testing.',
     url: 'https://en-decode-x.vercel.app',
   },
   robots: { index: true, follow: true },
@@ -64,9 +65,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'WebApplication',
-              name: 'SwagLabs',
+              name: 'Explore Testing',
               url: 'https://en-decode-x.vercel.app',
-              description: 'Demo e-commerce store for testing and automation.',
+              description:
+                'Explore Testing is a demo e-commerce app for QA, automation, and user journey exploration.',
               applicationCategory: 'ShoppingApplication',
               operatingSystem: 'Any',
               browserRequirements: 'Requires JavaScript',
