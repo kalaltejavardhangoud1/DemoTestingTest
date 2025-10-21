@@ -21,7 +21,7 @@ const PRODUCTS: Product[] = [
   {
     id: 1,
     name: 'Premium Backpack',
-    price: 29.99,
+    price: 20,
     image: '🎒',
     description: 'Carry all your essentials with this sleek, streamlined backpack that melds uncompromising style with unequaled laptop and tablet protection.'
   },
