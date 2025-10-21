@@ -333,14 +333,7 @@ export default function EcommerceSite() {
                 <p className="text-gray-600 mb-6 leading-relaxed">{selectedProduct.description}</p>
                 <div className="text-4xl font-bold text-gray-800 mb-8">${selectedProduct.price.toFixed(2)}</div>
                 <div className="flex flex-col md:flex-row gap-4">
-                  <button
-                    onClick={() => {
-                      addToCart(selectedProduct);
-                    }}
-                    className="px-8 py-4 bg-blue-600 text-white text-lg rounded-lg hover:bg-blue-700 transition"
-                  >
-                    Add to Cart
-                  </button>
+                 
                   <button
                     onClick={() => setPage('cart')}
                     className="px-8 py-4 bg-green-600 text-white text-lg rounded-lg hover:bg-green-700 transition"
